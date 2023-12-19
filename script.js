@@ -33,7 +33,7 @@ types.push( {
 } );
 
 types.push( {
-    width: 9,
+    width: 6.99,
     color: "#a40000",
     type:  "cherry",
     force: 2
@@ -105,7 +105,7 @@ var fruit = {
     body: null,
     start: function (arg_type) {
         this.type = arg_type;
-        this.body = Bodies.circle(mouseX, 30, this.type.width, { render: { fillStyle: this.type.color }, angle: 1, friction: 0.00001, frictionStatic: 0.5, slop: 0 } );
+        this.body = Bodies.circle(mouseX, 30, this.type.width, { render: { fillStyle: this.type.color }, angle: 1, friction: 0.1, restitution: 0.3/* friction: 0.00001, frictionStatic: 0.5, slop: 0 */ } );
         Composite.add(engine.world, this.body);
         var bodies = [];
         for (let i = 0; i < fruits.length; i++) {
@@ -118,7 +118,7 @@ var fruit = {
             const aw = this.body.circleRadius;
             const x = this.body.position.x;
             this.type = types[this.type.force];
-            this.body = Bodies.circle(x, yA - this.type.width + aw - 5, this.type.width, { render: { fillStyle: this.type.color }, angle: 1, friction: 0.00001, frictionStatic: 0.5, slop: 0 } );
+            this.body = Bodies.circle(x, yA - this.type.width + aw - 5, this.type.width, { render: { fillStyle: this.type.color }, angle: 1, friction: 0.1, restitution: 0.3/* friction: 0.00001, frictionStatic: 0.5, slop: 0 */ } );
         }
     }
 };
